@@ -1,28 +1,23 @@
 name: Complie .NET Application
-
-on:
+'on':
   push:
     branches:
       - master
   pull_request:
     branches:
       - master
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    
-    - name: Set up .NET SDK
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: '8.0'
-    
-    - name: Complie
-      uses: actions/setup-dotnet@v2
-      run : dotnet restore
-    - name: Build
-       run: dotnet build
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0'
+      - name: Complie
+        uses: actions/setup-dotnet@v2
+        run: dotnet restore
+      - name: Build
+        run: dotnet build
